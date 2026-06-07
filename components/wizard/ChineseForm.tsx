@@ -59,6 +59,8 @@ export default function ChineseForm({
             id="mother-birth-date"
             selected={motherBirthDate}
             onChange={onMotherBirthDateChange}
+            placeholder="Select birth date"
+            variant="birthDate"
             required
           />
         </div>

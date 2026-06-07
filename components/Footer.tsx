@@ -1,3 +1,5 @@
+import FooterShare from "@/components/FooterShare";
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -65,6 +67,10 @@ export default function Footer() {
             <span aria-hidden>☕</span>
             Little donation is big help
           </a>
+        </div>
+
+        <div className="mt-8">
+          <FooterShare />
         </div>
 
         <hr className="border-white/30 my-6" />

@@ -1,17 +1,24 @@
 export default function Disclaimer() {
   return (
-    <section className="mb-12 rounded-2xl bg-neutral border border-line p-6 md:p-8">
-      <div>
-        <h2 className="text-primary">Important Disclaimer</h2>
-        <p className="mb-0">
-          The methods presented in this application are based on traditional beliefs
-          and theories that have not been scientifically proven to significantly
-          influence baby gender. The Shettles Method and Chinese Birth Calendar are
-          not guaranteed to produce the desired results. This application is for
-          informational and entertainment purposes only. For medical advice about
-          conception, please consult with a healthcare professional.
-        </p>
-      </div>
+    <section className="mb-8 sm:mb-12 scroll-mt-8">
+      <details className="group rounded-2xl bg-neutral border border-line overflow-hidden">
+        <summary className="cursor-pointer list-none px-4 py-3 sm:px-6 sm:py-4 font-semibold text-primary flex items-center justify-between gap-2 [&::-webkit-details-marker]:hidden">
+          <span>Important disclaimer</span>
+          <span className="text-foreground-light text-sm font-normal group-open:hidden">
+            Tap to read
+          </span>
+          <span className="text-foreground-light text-sm font-normal hidden group-open:inline">
+            Tap to close
+          </span>
+        </summary>
+        <div className="px-4 pb-4 sm:px-6 sm:pb-6 pt-0 border-t border-line">
+          <p className="mb-0 text-sm sm:text-base text-foreground-light">
+            These methods are traditional ideas, not proven science. They are not
+            guaranteed to work. This app is for information and fun only. For medical
+            advice about getting pregnant, talk to your doctor.
+          </p>
+        </div>
+      </details>
     </section>
   );
 }

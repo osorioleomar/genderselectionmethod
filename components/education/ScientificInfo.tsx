@@ -1,74 +1,35 @@
 export default function ScientificInfo() {
   return (
-    <div>
-      <h3>Scientific Perspective on Gender Selection Methods</h3>
-      <p>
-        It&apos;s important to understand the scientific context surrounding traditional
-        gender selection methods. Modern reproductive science provides insights into how
-        gender is determined and the limitations of natural gender selection approaches.
-      </p>
+    <div className="text-sm sm:text-base">
+      <h3 className="text-lg sm:text-xl">What science says</h3>
 
-      <h4>Biological Gender Determination:</h4>
-      <p>
-        From a scientific standpoint, a baby&apos;s biological sex is determined at the
-        moment of conception by the chromosomes in the sperm that fertilizes the egg:
-      </p>
-      <ul>
-        <li>If a sperm carrying an X chromosome fertilizes the egg, the baby will be female (XX)</li>
-        <li>If a sperm carrying a Y chromosome fertilizes the egg, the baby will be male (XY)</li>
-      </ul>
-
-      <h4>Research on Traditional Methods:</h4>
-      <div className="rounded-xl border border-line overflow-hidden mb-6">
-        <div className="bg-secondary/30 px-4 py-3 font-semibold">Scientific Findings:</div>
-        <div className="p-4">
-          <ul>
-            <li>Each conception naturally has approximately a 50/50 chance of being a boy or girl</li>
-            <li>
-              Some studies on timing methods (like Shettles) have shown slight effects, but
-              results are inconsistent and the effect size is typically small
-            </li>
-            <li>
-              No strong scientific evidence supports the accuracy of the Chinese Birth
-              Calendar method
-            </li>
-            <li>
-              The only scientifically validated methods for gender selection with high success
-              rates are medical procedures such as:
-              <ul>
-                <li>Preimplantation Genetic Testing (PGT) with IVF</li>
-                <li>Sperm sorting techniques</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+      <div className="rounded-xl border border-primary/30 bg-primary/5 p-4 mb-6">
+        <p className="mb-0 font-medium">
+          Bottom line: both the Shettles method and the Chinese chart are roughly{" "}
+          <strong>50/50</strong> — about the same as leaving it to chance. Neither is
+          proven to pick gender reliably.
+        </p>
       </div>
 
-      <h4>Factors That May Influence Gender:</h4>
+      <h4 className="text-base">How gender is actually decided</h4>
       <p>
-        Research has investigated several factors that might potentially influence gender,
-        though evidence remains limited:
+        At conception, the sperm that reaches the egg decides it: one type leads to a girl,
+        another to a boy. That happens before any calendar or timing trick can change it.
       </p>
-      <ul>
+
+      <h4 className="text-base">What research found</h4>
+      <ul className="space-y-2">
+        <li>Timing (Shettles) might shift odds a tiny bit in some studies — results vary a lot.</li>
+        <li>The Chinese chart hasn&apos;t held up in scientific tests.</li>
         <li>
-          <strong>Timing of intercourse:</strong> Some studies suggest slight influences,
-          though results vary
-        </li>
-        <li>
-          <strong>Environmental factors:</strong> Some research indicates potential
-          influences from factors like maternal diet, though evidence is not conclusive
-        </li>
-        <li>
-          <strong>Parental age and hormonal levels:</strong> May have slight statistical
-          correlations with baby gender
+          Only medical options (like IVF with genetic testing) can target gender with high
+          accuracy — and those come with cost, rules, and medical oversight.
         </li>
       </ul>
 
-      <p>
-        When exploring traditional methods of gender selection, it&apos;s important to
-        approach them with realistic expectations. While they can be fun to try and may
-        align with your family planning goals, scientific evidence suggests their
-        effectiveness is likely limited.
+      <p className="mb-0 text-foreground-light text-sm">
+        It&apos;s fine to explore these tools for fun or curiosity. Just keep expectations
+        realistic and focus on a healthy pregnancy above all.
       </p>
     </div>
   );

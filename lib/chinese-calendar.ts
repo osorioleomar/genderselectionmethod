@@ -1,4 +1,4 @@
-import type { Gender } from "./dates";
+import { MONTH_NAMES, type Gender } from "./dates";
 
 type ChartGender = Gender | "unknown";
 
@@ -94,4 +94,46 @@ export function calculateChineseResults(
 export function getConceptionYearOptions(): number[] {
   const currentYear = new Date().getFullYear();
   return Array.from({ length: 6 }, (_, i) => currentYear + i);
+}
+
+export type ShettlesSuggestionTiming = "current" | "next";
+
+export interface ShettlesSuggestion {
+  timing: ShettlesSuggestionTiming;
+  month: number;
+  monthName: string;
+}
+
+/** Suggests Shettles when the current or next month in the conception year favors the desired gender. */
+export function getShettlesSuggestion(
+  conceptionYear: number,
+  favorableMonths: number[],
+  referenceDate = new Date()
+): ShettlesSuggestion | null {
+  if (conceptionYear !== referenceDate.getFullYear() || favorableMonths.length === 0) {
+    return null;
+  }
+
+  const currentMonth = referenceDate.getMonth() + 1;
+
+  if (favorableMonths.includes(currentMonth)) {
+    return {
+      timing: "current",
+      month: currentMonth,
+      monthName: MONTH_NAMES[currentMonth - 1],
+    };
+  }
+
+  if (currentMonth < 12) {
+    const nextMonth = currentMonth + 1;
+    if (favorableMonths.includes(nextMonth)) {
+      return {
+        timing: "next",
+        month: nextMonth,
+        monthName: MONTH_NAMES[nextMonth - 1],
+      };
+    }
+  }
+
+  return null;
 }

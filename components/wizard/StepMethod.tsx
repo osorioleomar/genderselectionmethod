@@ -3,34 +3,45 @@ export type Method = "shettles" | "chinese";
 interface StepMethodProps {
   selectedMethod: Method | null;
   onSelect: (method: Method) => void;
+  onAutoAdvance: () => void;
 }
 
-export default function StepMethod({ selectedMethod, onSelect }: StepMethodProps) {
+export default function StepMethod({
+  selectedMethod,
+  onSelect,
+  onAutoAdvance,
+}: StepMethodProps) {
+  const handleSelect = (method: Method) => {
+    onSelect(method);
+    onAutoAdvance();
+  };
+
   return (
     <div>
-      <h2 className="text-center mb-6">Choose your preferred method:</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <h2 className="text-center mb-4 sm:mb-6 text-xl sm:text-2xl">
+        Pick a method
+      </h2>
+      <div className="flex flex-col sm:grid sm:grid-cols-2 gap-3 sm:gap-4 p-1 sm:p-0">
         <button
           type="button"
-          onClick={() => onSelect("shettles")}
-          className={`card-selectable text-left h-full ${selectedMethod === "shettles" ? "active" : ""}`}
+          onClick={() => handleSelect("shettles")}
+          className={`card-selectable text-left p-4 sm:p-6 min-h-[88px] ${selectedMethod === "shettles" ? "active" : ""}`}
         >
-          <h3 className="text-primary mb-3">Shettles Method Calculator</h3>
+          <h3 className="text-primary mb-2 text-lg">Shettles timing</h3>
           <p className="text-foreground-light mb-0 text-sm">
-            Developed by Dr. Landrum Shettles, this scientifically-based approach
-            suggests that timing intercourse relative to ovulation can influence
-            whether you conceive a boy or girl.
+            Uses your cycle dates to suggest the best days to try, based on when you
+            ovulate.
           </p>
         </button>
         <button
           type="button"
-          onClick={() => onSelect("chinese")}
-          className={`card-selectable text-left h-full ${selectedMethod === "chinese" ? "active" : ""}`}
+          onClick={() => handleSelect("chinese")}
+          className={`card-selectable text-left p-4 sm:p-6 min-h-[88px] ${selectedMethod === "chinese" ? "active" : ""}`}
         >
-          <h3 className="text-primary mb-3">Chinese Birth Calendar</h3>
+          <h3 className="text-primary mb-2 text-lg">Chinese birth chart</h3>
           <p className="text-foreground-light mb-0 text-sm">
-            This ancient method, dating back over 700 years, uses the mother&apos;s
-            lunar age and conception month to predict baby gender.
+            Shows which months to try conceiving in, based on your age and the calendar month
+            you hope to get pregnant.
           </p>
         </button>
       </div>

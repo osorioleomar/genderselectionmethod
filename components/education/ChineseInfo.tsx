@@ -1,58 +1,42 @@
 export default function ChineseInfo() {
   return (
-    <div>
-      <h3>The Ancient Wisdom of the Chinese Birth Calendar</h3>
+    <div className="text-sm sm:text-base">
+      <h3 className="text-lg sm:text-xl">How the Chinese birth chart works</h3>
       <p>
-        The Chinese Birth Calendar (also known as the Chinese Gender Chart or Chinese
-        Pregnancy Calendar) is said to be over 700 years old and was reportedly discovered
-        in a royal tomb near Beijing. This ancient method has been passed down through
-        generations as a tool for family planning.
+        This chart is an old tradition — over 700 years, people have used it to guess baby
+        gender from the mother&apos;s age and the month of conception.
       </p>
 
-      <h4>Historical Significance:</h4>
       <p>
-        In traditional Chinese culture, this calendar was considered a valuable tool for
-        family planning, especially in times when having a male heir was socially important.
-        Today, it continues to be consulted by couples worldwide who are interested in
-        traditional methods of gender selection.
+        Think of it like a lookup table: find your age on one side, find the month of
+        conception on the other, and the chart says boy or girl. Our calculator does that
+        math for you.
       </p>
 
-      <h4>How the Chinese Birth Calendar Works:</h4>
-      <ol>
-        <li>
-          <strong>Lunar Age Calculation:</strong> The mother&apos;s lunar age at the time
-          of conception is calculated (which is typically one year more than Western age)
-        </li>
-        <li>
-          <strong>Lunar Month Determination:</strong> The lunar month of conception is
-          determined using the Chinese lunar calendar
-        </li>
-        <li>
-          <strong>Chart Consultation:</strong> These two values are cross-referenced on the
-          traditional chart to predict the baby&apos;s gender
-        </li>
-      </ol>
-
-      <div className="flex justify-center my-6">
-        <div className="rounded-xl border border-line overflow-hidden max-w-md w-full">
-          <div className="bg-primary/20 px-4 py-3 font-semibold text-center">
-            Chinese Birth Calendar Interpretation
-          </div>
-          <div className="p-4">
-            <p>The chart is presented as a grid where:</p>
-            <ul>
-              <li>Vertical axis: Mother&apos;s lunar age (18-45)</li>
-              <li>Horizontal axis: Lunar month of conception (1-12)</li>
-              <li>Each cell contains either &quot;boy&quot; or &quot;girl&quot; prediction</li>
-            </ul>
-          </div>
-        </div>
+      <div className="rounded-xl border border-line bg-neutral p-4 my-6">
+        <p className="font-semibold mb-2">What you need:</p>
+        <ul className="ml-4 mb-2 space-y-1">
+          <li>Your date of birth</li>
+          <li>The year you hope to conceive</li>
+          <li>Whether you&apos;re hoping for a boy or girl</li>
+        </ul>
+        <p className="font-semibold mb-2">How to use your results:</p>
+        <ul className="ml-4 mb-0 space-y-1">
+          <li>
+            Highlighted months are when to <strong>try to conceive</strong> — plan sex around
+            your fertile window in those months
+          </li>
+          <li>
+            The chart cares about the <strong>calendar month</strong> conception happens in,
+            not a specific day
+          </li>
+          <li>Gray months are ones to skip if you&apos;re following this tradition</li>
+        </ul>
       </div>
 
-      <p>
-        While many people find the Chinese Birth Calendar fascinating for its cultural and
-        historical significance, modern scientific studies have not found evidence that it
-        can predict gender with accuracy greater than chance (approximately 50%).
+      <p className="mb-0 text-foreground-light text-sm">
+        It&apos;s cultural fun for many families. Science hasn&apos;t shown it works better
+        than guessing — about 50/50 either way.
       </p>
     </div>
   );

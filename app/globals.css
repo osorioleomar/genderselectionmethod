@@ -64,7 +64,7 @@
   }
 
   .card-selectable {
-    @apply rounded-2xl border-2 border-line bg-white p-6 shadow-soft cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-card;
+    @apply rounded-2xl border-2 border-line bg-white p-6 shadow-soft cursor-pointer transition-colors duration-200 hover:border-primary/40 hover:shadow-card;
   }
 
   .card-selectable.active {
@@ -95,11 +95,39 @@
   @apply text-white;
 }
 
+.react-datepicker__header__dropdown {
+  @apply flex items-center justify-center gap-2 pt-1;
+}
+
+.react-datepicker__month-dropdown-container--select,
+.react-datepicker__year-dropdown-container--select {
+  @apply m-0;
+}
+
+.react-datepicker__month-select,
+.react-datepicker__year-select {
+  @apply rounded-md border border-white/30 bg-white/15 px-2 py-1 text-sm font-semibold text-white cursor-pointer;
+}
+
+.react-datepicker__month-select option,
+.react-datepicker__year-select option {
+  @apply text-foreground bg-white;
+}
+
 .react-datepicker__day--selected,
 .react-datepicker__day--keyboard-selected {
   @apply bg-primary;
 }
 
-.react-datepicker__day:hover {
-  @apply bg-primary/20;
+.react-datepicker-popper,
+.react-datepicker__portal {
+  z-index: 50 !important;
+}
+
+.react-datepicker-popper[data-placement^="bottom"] {
+  padding-top: 8px;
+}
+
+.react-datepicker-popper[data-placement^="top"] {
+  padding-bottom: 8px;
 }

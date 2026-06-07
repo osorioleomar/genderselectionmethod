@@ -8,7 +8,10 @@ import ShettlesForm from "./ShettlesForm";
 import ChineseForm from "./ChineseForm";
 import ShettlesResultsView from "./ShettlesResults";
 import ChineseResultsView from "./ChineseResults";
+import ShareButtons from "@/components/ShareButtons";
 import type { Gender } from "@/lib/dates";
+import { getResultsSharePayload } from "@/lib/share";
+import { useSiteOrigin } from "@/lib/useSiteOrigin";
 import type { ShettlesResults } from "@/lib/shettles";
 import type { ChineseResults } from "@/lib/chinese-calendar";
 
@@ -56,6 +59,22 @@ export default function Wizard() {
     }));
   }, []);
 
+  const handleTryShettlesFromChinese = useCallback(() => {
+    setState((prev) => ({
+      ...prev,
+      method: "shettles",
+      step: 3,
+      shettlesResults: null,
+      chineseResults: null,
+      error: null,
+      chineseFormError: null,
+    }));
+  }, []);
+
+  const goToStep = (step: 1 | 2 | 3 | 4) => {
+    setState((prev) => ({ ...prev, step, error: null }));
+  };
+
   const validateAndAdvance = () => {
     if (state.step === 1) {
       if (!state.gender) {
@@ -94,16 +113,6 @@ export default function Wizard() {
     }
   };
 
-  const goBack = () => {
-    if (state.step > 1) {
-      setState((prev) => ({
-        ...prev,
-        step: (prev.step - 1) as 1 | 2 | 3 | 4,
-        error: null,
-      }));
-    }
-  };
-
   const handleNext = () => {
     if (state.step === 4) {
       resetWizard();
@@ -114,34 +123,35 @@ export default function Wizard() {
 
   const showShettlesForm = state.method === "shettles" && state.gender;
   const showChineseForm = state.method === "chinese" && state.gender;
+  const siteOrigin = useSiteOrigin();
+  const resultsSharePayload =
+    siteOrigin && getResultsSharePayload(state.shettlesResults, state.chineseResults, siteOrigin);
 
   return (
-    <section id="wizard" className="mb-12 scroll-mt-8">
-      <div className="rounded-2xl border border-line bg-white p-6 md:p-8 shadow-soft">
+    <section id="wizard" className="scroll-mt-8 mb-6 sm:mb-12">
+      <div className="rounded-none sm:rounded-2xl border-0 sm:border border-line bg-white sm:p-6 md:p-8 sm:shadow-soft flex flex-col min-h-[calc(100dvh-88px)] sm:min-h-0 max-w-7xl mx-auto">
         <WizardProgress currentStep={state.step} />
 
-        <div className="min-h-[200px] mb-8">
+        <div className="flex-1 overflow-y-auto overflow-x-hidden sm:overflow-visible pb-[88px] sm:pb-0 min-h-0 px-4 sm:px-0">
           {state.step === 1 && (
             <StepGender
               selectedGender={state.gender}
-              onSelect={(gender) =>
-                setState((prev) => ({ ...prev, gender, error: null }))
-              }
+              onSelect={(gender) => setState((prev) => ({ ...prev, gender, error: null }))}
+              onAutoAdvance={() => goToStep(2)}
             />
           )}
 
           {state.step === 2 && (
             <StepMethod
               selectedMethod={state.method}
-              onSelect={(method) =>
-                setState((prev) => ({ ...prev, method, error: null }))
-              }
+              onSelect={(method) => setState((prev) => ({ ...prev, method, error: null }))}
+              onAutoAdvance={() => goToStep(3)}
             />
           )}
 
           {state.step === 3 && state.gender && (
             <div>
-              <h2 className="text-center mb-6">Enter Your Details</h2>
+              <h2 className="text-center mb-4 sm:mb-6 text-xl sm:text-2xl">Your details</h2>
               {showShettlesForm && (
                 <ShettlesForm
                   gender={state.gender}
@@ -179,41 +189,53 @@ export default function Wizard() {
 
           {state.step === 4 && (
             <div>
-              <h2 className="text-center mb-6">Your Results</h2>
+              <h2 className="text-center mb-4 sm:mb-6 text-xl sm:text-2xl">Your results</h2>
               {state.shettlesResults && (
                 <ShettlesResultsView results={state.shettlesResults} />
               )}
               {state.chineseResults && (
-                <ChineseResultsView results={state.chineseResults} />
+                <ChineseResultsView
+                  results={state.chineseResults}
+                  onTryShettles={handleTryShettlesFromChinese}
+                />
               )}
             </div>
           )}
+
+          {state.error && (
+            <p className="text-red-600 text-sm text-center mt-4" role="alert">
+              {state.error}
+            </p>
+          )}
         </div>
 
-        {state.error && (
-          <p className="text-red-600 text-sm text-center mb-4" role="alert">
-            {state.error}
-          </p>
-        )}
-
-        <div className="flex flex-col sm:flex-row justify-between gap-3">
-          <button
-            type="button"
-            onClick={goBack}
-            disabled={state.step === 1}
-            className="btn-outline w-full sm:w-auto disabled:opacity-40 disabled:cursor-not-allowed"
+        {/* Sticky bottom nav on mobile */}
+        <div className="fixed bottom-0 left-0 right-0 z-40 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] bg-white border-t border-line sm:static sm:border-0 sm:px-0 sm:py-0 sm:mt-6">
+          <div
+            className={`flex max-w-7xl mx-auto gap-3 ${
+              state.step === 4 && resultsSharePayload ? "justify-stretch sm:justify-end" : "justify-end"
+            }`}
           >
-            Previous
-          </button>
-          <button
-            type="button"
-            onClick={handleNext}
-            className={
-              state.step === 4 ? "btn-outline w-full sm:w-auto" : "btn-primary w-full sm:w-auto"
-            }
-          >
-            {state.step === 4 ? "Start Over" : "Next"}
-          </button>
+            {state.step === 4 && resultsSharePayload && (
+              <ShareButtons
+                variant="compact"
+                message={resultsSharePayload.message}
+                url={resultsSharePayload.url}
+                title={resultsSharePayload.title}
+              />
+            )}
+            <button
+              type="button"
+              onClick={handleNext}
+              className={`min-h-[48px] ${
+                state.step === 4 && resultsSharePayload
+                  ? "btn-outline flex-[3] sm:flex-none sm:min-w-[140px]"
+                  : "w-full sm:w-auto"
+              } ${state.step === 4 ? "btn-outline" : "btn-primary"}`}
+            >
+              {state.step === 4 ? "Start Over" : "Next"}
+            </button>
+          </div>
         </div>
       </div>
     </section>
