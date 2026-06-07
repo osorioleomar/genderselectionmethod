@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Gender Selection Methods | Shettles & Chinese Calendar Planner</title>
+    <meta name="description" content="Explore traditional gender selection methods with our easy-to-use calculators. Learn about the Shettles Method and Chinese Birth Calendar for conception planning.">
+    <meta name="keywords" content="gender selection, shettles method, chinese birth calendar, conception planning, family planning, fertility tracker">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://kit.fontawesome.com/a076d05399.css" rel="stylesheet">
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/calendar.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "qoebo51gmq");
+    </script>
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Natural Gender Selection Methods</h1>
+            <p class="subtitle">Explore Traditional Approaches to Plan for a Boy or Girl</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="wizard-section">
+            <div class="wizard-progress">
+                <div class="progress-step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Choose Gender</div>
+                </div>
+                <div class="progress-step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Select Method</div>
+                </div>
+                <div class="progress-step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Enter Details</div>
+                </div>
+                <div class="progress-step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-label">View Results</div>
+                </div>
+            </div>
+
+            <div class="wizard-content">
+                <!-- Step 1: Gender Selection -->
+                <div class="wizard-step active" id="step-1">
+                    <h2 class="text-center mb-4">Which gender are you hoping to conceive?</h2>
+                    <div class="gender-selection-container">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="gender-card boy-card" data-gender="boy">
+                                    <div class="gender-icon">👦</div>
+                                    <h3>Boy</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="gender-card girl-card" data-gender="girl">
+                                    <div class="gender-icon">👧</div>
+                                    <h3>Girl</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Method Selection -->
+                <div class="wizard-step" id="step-2">
+                    <h2 class="text-center mb-4">Choose your preferred method:</h2>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="method-card h-100" data-method="shettles">
+                                <h3>Shettles Method Calculator</h3>
+                                <p>Developed by Dr. Landrum Shettles, this scientifically-based approach suggests that timing intercourse relative to ovulation can influence whether you conceive a boy or girl.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="method-card h-100" data-method="chinese">
+                                <h3>Chinese Birth Calendar</h3>
+                                <p>This ancient method, dating back over 700 years, uses the mother's lunar age and conception month to predict baby gender.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Method Details -->
+                <div class="wizard-step" id="step-3">
+                    <h2 class="text-center mb-4">Enter Your Details</h2>
+                    <div id="shettles-form-container" class="method-form hidden">
+                        <form id="shettles-form" class="needs-validation" novalidate>
+                            <input type="hidden" name="desired-gender-shettles" value="">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="last-period">First day of last menstrual period:</label>
+                                        <div class="input-group">
+                                            <input type="text" id="last-period" class="form-control date-picker" placeholder="Select date" required>
+                                            <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                                        </div>
+                                        <div class="invalid-feedback">Please select a date.</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="cycle-length">Average menstrual cycle length (days):</label>
+                                        <div class="input-group">
+                                            <button type="button" class="btn btn-outline-secondary number-spinner-btn" data-action="decrease">-</button>
+                                            <input type="number" id="cycle-length" class="form-control number-spinner" min="21" max="35" value="28" required>
+                                            <button type="button" class="btn btn-outline-secondary number-spinner-btn" data-action="increase">+</button>
+                                        </div>
+                                        <small>Most cycles are between 21-35 days</small>
+                                        <div class="invalid-feedback">Please enter a valid cycle length (21-35).</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="chinese-form-container" class="method-form hidden">
+                        <form id="chinese-form" class="needs-validation" novalidate>
+                            <input type="hidden" name="desired-gender-chinese" value="">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="mother-birth-date">Mother's date of birth:</label>
+                                        <div class="input-group">
+                                            <input type="text" id="mother-birth-date" class="form-control date-picker" placeholder="Select date" required>
+                                            <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                                        </div>
+                                        <div class="invalid-feedback">Please select a date.</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="conception-year">Year of planned conception:</label>
+                                        <select id="conception-year" class="form-select" required>
+                                            <!-- Will be populated by JavaScript -->
+                                        </select>
+                                        <div class="invalid-feedback">Please select a year.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn primary">Find Favorable Months</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Step 4: Results -->
+                <div class="wizard-step" id="step-4">
+                    <h2 class="text-center mb-4">Your Results</h2>
+                    <div id="shettles-results" class="results-container">
+                        <!-- Results will be populated by JavaScript -->
+                        <p><strong>If you see this text, the results container exists but is not being populated correctly.</strong></p>
+                    </div>
+                    <div id="chinese-results" class="results-container hidden">
+                        <!-- Results will be populated by JavaScript -->
+                        <p><strong>If you see this text, the results container exists but is not being populated correctly.</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wizard-navigation">
+                <button class="btn outline" id="prev-step" disabled>Previous</button>
+                <button class="btn primary" id="next-step">Next</button>
+            </div>
+        </section>
+
+        <section class="disclaimer">
+            <div class="disclaimer-content">
+                <h2>Important Disclaimer</h2>
+                <p>The methods presented in this application are based on traditional beliefs and theories that have not been scientifically proven to significantly influence baby gender. The Shettles Method and Chinese Birth Calendar are not guaranteed to produce the desired results. This application is for informational and entertainment purposes only. For medical advice about conception, please consult with a healthcare professional.</p>
+            </div>
+        </section>
+
+        <section class="educational-content">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="shettles-info">Shettles Method</button>
+                <button class="tab-btn" data-tab="chinese-info">Chinese Calendar</button>
+                <button class="tab-btn" data-tab="scientific-info">Scientific Context</button>
+                <button class="tab-btn" data-tab="faq">FAQ</button>
+            </div>
+            
+            <div id="shettles-info" class="tab-content active">
+                <h3>The Complete Guide to the Shettles Method</h3>
+                <p>Developed by Dr. Landrum Shettles in the 1960s, this method is based on research indicating that sperm carrying the Y chromosome (leading to a boy) have different characteristics than those carrying the X chromosome (leading to a girl). Dr. Shettles observed that Y-chromosome sperm are faster swimmers but more fragile, while X-chromosome sperm are slower but more resilient.</p>
+                
+                <h4>Biological Foundation of the Shettles Method:</h4>
+                <p>The key to the Shettles Method is understanding that Y-chromosome and X-chromosome sperm respond differently to the conditions in the female reproductive tract. These differences in survival and swimming speed form the basis for timing recommendations.</p>
+                
+                <h4>Key Principles for Gender Selection:</h4>
+                <ul>
+                    <li><strong>For conceiving a boy:</strong> Intercourse should occur as close to ovulation as possible, ideally on the day of ovulation or the day before. This gives the faster Y-chromosome sperm the advantage of reaching the egg first while they're still viable.</li>
+                    <li><strong>For conceiving a girl:</strong> Intercourse should occur 2-4 days before ovulation. This allows most of the more fragile Y-chromosome sperm to die off, while the hardier X-chromosome sperm survive longer to fertilize the egg when it's released.</li>
+                    <li><strong>Additional factors:</strong> The method also suggests various factors that may influence gender selection:</li>
+                </ul>
+                
+                <div class="additional-factors mb-4">
+                    <h5>Secondary Factors in the Shettles Method:</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header">For Conceiving a Boy</div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Deep penetration during intercourse</li>
+                                    <li class="list-group-item">Female orgasm, which creates alkaline secretions</li>
+                                    <li class="list-group-item">Alkaline diet for the woman</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header">For Conceiving a Girl</div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Shallow penetration during intercourse</li>
+                                    <li class="list-group-item">Avoiding female orgasm during conception</li>
+                                    <li class="list-group-item">Slightly acidic diet for the woman</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>While the Shettles Method is one of the most well-known natural gender selection approaches, it's important to remember that scientific studies have shown mixed results regarding its effectiveness. Some couples report success, while others find the method no more effective than chance.</p>
+            </div>
+            
+            <div id="chinese-info" class="tab-content">
+                <h3>The Ancient Wisdom of the Chinese Birth Calendar</h3>
+                <p>The Chinese Birth Calendar (also known as the Chinese Gender Chart or Chinese Pregnancy Calendar) is said to be over 700 years old and was reportedly discovered in a royal tomb near Beijing. This ancient method has been passed down through generations as a tool for family planning.</p>
+                
+                <h4>Historical Significance:</h4>
+                <p>In traditional Chinese culture, this calendar was considered a valuable tool for family planning, especially in times when having a male heir was socially important. Today, it continues to be consulted by couples worldwide who are interested in traditional methods of gender selection.</p>
+                
+                <h4>How the Chinese Birth Calendar Works:</h4>
+                <ol>
+                    <li><strong>Lunar Age Calculation:</strong> The mother's lunar age at the time of conception is calculated (which is typically one year more than Western age)</li>
+                    <li><strong>Lunar Month Determination:</strong> The lunar month of conception is determined using the Chinese lunar calendar</li>
+                    <li><strong>Chart Consultation:</strong> These two values are cross-referenced on the traditional chart to predict the baby's gender</li>
+                </ol>
+                
+                <div class="text-center my-4">
+                    <div class="card mx-auto" style="max-width: 500px;">
+                        <div class="card-header">
+                            Chinese Birth Calendar Interpretation
+                        </div>
+                        <div class="card-body">
+                            <p>The chart is presented as a grid where:</p>
+                            <ul class="text-start">
+                                <li>Vertical axis: Mother's lunar age (18-45)</li>
+                                <li>Horizontal axis: Lunar month of conception (1-12)</li>
+                                <li>Each cell contains either "boy" or "girl" prediction</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>While many people find the Chinese Birth Calendar fascinating for its cultural and historical significance, modern scientific studies have not found evidence that it can predict gender with accuracy greater than chance (approximately 50%).</p>
+            </div>
+            
+            <div id="scientific-info" class="tab-content">
+                <h3>Scientific Perspective on Gender Selection Methods</h3>
+                <p>It's important to understand the scientific context surrounding traditional gender selection methods. Modern reproductive science provides insights into how gender is determined and the limitations of natural gender selection approaches.</p>
+                
+                <h4>Biological Gender Determination:</h4>
+                <p>From a scientific standpoint, a baby's biological sex is determined at the moment of conception by the chromosomes in the sperm that fertilizes the egg:</p>
+                <ul>
+                    <li>If a sperm carrying an X chromosome fertilizes the egg, the baby will be female (XX)</li>
+                    <li>If a sperm carrying a Y chromosome fertilizes the egg, the baby will be male (XY)</li>
+                </ul>
+                
+                <h4>Research on Traditional Methods:</h4>
+                <div class="card mb-4">
+                    <div class="card-header">Scientific Findings:</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Each conception naturally has approximately a 50/50 chance of being a boy or girl</li>
+                            <li>Some studies on timing methods (like Shettles) have shown slight effects, but results are inconsistent and the effect size is typically small</li>
+                            <li>No strong scientific evidence supports the accuracy of the Chinese Birth Calendar method</li>
+                            <li>The only scientifically validated methods for gender selection with high success rates are medical procedures such as:
+                                <ul>
+                                    <li>Preimplantation Genetic Testing (PGT) with IVF</li>
+                                    <li>Sperm sorting techniques</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h4>Factors That May Influence Gender:</h4>
+                <p>Research has investigated several factors that might potentially influence gender, though evidence remains limited:</p>
+                <ul>
+                    <li><strong>Timing of intercourse:</strong> Some studies suggest slight influences, though results vary</li>
+                    <li><strong>Environmental factors:</strong> Some research indicates potential influences from factors like maternal diet, though evidence is not conclusive</li>
+                    <li><strong>Parental age and hormonal levels:</strong> May have slight statistical correlations with baby gender</li>
+                </ul>
+                
+                <p>When exploring traditional methods of gender selection, it's important to approach them with realistic expectations. While they can be fun to try and may align with your family planning goals, scientific evidence suggests their effectiveness is likely limited.</p>
+            </div>
+            
+            <div id="faq" class="tab-content">
+                <h3>Frequently Asked Questions About Gender Selection</h3>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">How effective are natural gender selection methods?</button>
+                        <div class="accordion-content">
+                            <p>Both the Shettles Method and Chinese Birth Calendar have approximately a 50% success rate, which is what would be expected by chance alone. Scientific studies have not consistently demonstrated that either method can significantly increase the likelihood of conceiving a specific gender. Some families report success with these methods, but this may be due to coincidence rather than the effectiveness of the method itself.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">Can I combine both the Shettles Method and Chinese Calendar?</button>
+                        <div class="accordion-content">
+                            <p>You can try to combine both methods by finding overlap between the Shettles timing recommendations and favorable months from the Chinese Calendar. However, there's no evidence that combining methods increases your chances of success. In some cases, the recommendations from the two methods might even contradict each other, creating confusion about the best approach.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">Are there any risks involved with natural gender selection methods?</button>
+                        <div class="accordion-content">
+                            <p>The natural methods described in this application don't pose physical health risks. However, potential emotional disappointment can occur if the desired outcome isn't achieved. It's important to be prepared for either gender outcome and to focus primarily on having a healthy baby. Additionally, being too focused on timing intercourse could potentially create stress around conception, which might affect fertility in sensitive individuals.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">How do I track ovulation accurately for the Shettles Method?</button>
+                        <div class="accordion-content">
+                            <p>For the most accurate ovulation tracking, consider using multiple methods together:</p>
+                            <ul>
+                                <li><strong>Basal Body Temperature (BBT):</strong> Take your temperature each morning before getting out of bed to identify the slight rise that occurs after ovulation</li>
+                                <li><strong>Ovulation Predictor Kits (OPKs):</strong> These test urine for luteinizing hormone (LH), which surges 24-36 hours before ovulation</li>
+                                <li><strong>Cervical Mucus Monitoring:</strong> Track changes in vaginal discharge, which becomes clear, stretchy, and slippery during your most fertile time</li>
+                                <li><strong>Fertility Tracking Apps:</strong> Use apps that combine multiple indicators to predict your fertile window</li>
+                                <li><strong>Fertility Monitor Devices:</strong> More advanced tools can track multiple hormones and physiological changes</li>
+                            </ul>
+                            <p>The more methods you use together, the more accurately you can pinpoint ovulation for timing purposes.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">What are the most scientifically reliable methods for gender selection?</button>
+                        <div class="accordion-content">
+                            <p>The most scientifically reliable methods for gender selection are medical procedures that include:</p>
+                            <ul>
+                                <li><strong>Preimplantation Genetic Testing (PGT) with In Vitro Fertilization (IVF):</strong> This involves creating embryos through IVF, testing them for gender, and then implanting embryos of the desired gender. This method is nearly 100% effective but is expensive, invasive, and may raise ethical considerations.</li>
+                                <li><strong>Sperm Sorting:</strong> Techniques like flow cytometry (such as the MicroSort method) can separate X and Y chromosome-bearing sperm before intrauterine insemination. This method has shown success rates of 60-80% for girls and 70-80% for boys.</li>
+                            </ul>
+                            <p>These medical procedures are typically only available for couples with medical reasons for gender selection in many countries, and regulations vary worldwide.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-md-6">
+                    <h4 class="mb-3">Natural Gender Selection Methods</h4>
+                    <p class="mb-2">Explore traditional approaches to family planning with our free calculators and educational resources.</p>
+                    <p class="disclaimer-footer">This application is for informational and entertainment purposes only. Always consult healthcare professionals for medical advice.</p>
+                    <p class="contact-info"><strong>Contact:</strong> <a href="mailto:genderselectionm@gmail.com" style="color: #fff">genderselectionm@gmail.com</a></p>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="mb-3">Quick Links</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="#shettles-method">Shettles Method Calculator</a></li>
+                            <li><a href="#chinese-method">Chinese Birth Calendar</a></li>
+                            <li><a href="#educational-content">Educational Resources</a></li>
+                            <li><a href="#faq">Frequently Asked Questions</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Little donation is big help', '#72a4f2', 'R6R61BYW41');kofiwidget2.draw();</script> 
+            <hr>
+            <p class="text-center">&copy; 2025 Gender Selection Methods App. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Dependencies -->
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
+    <!-- Application scripts - order matters -->
+    <script src="js/utils.js"></script>
+    <script src="js/lunar-conversion.js"></script>
+    <script src="js/calendar-visualization.js"></script>
+    <script src="js/shettles.js"></script>
+    <script src="js/chinese-calendar.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html> 
