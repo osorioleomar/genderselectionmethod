@@ -1,6 +1,6 @@
 # Natural Gender Selection Methods Web Application
 
-A comprehensive web application that helps couples explore traditional gender selection methods for family planning: the Shettles Method and the Chinese Birth Calendar.
+A Next.js web application that helps couples explore traditional gender selection methods for family planning: the Shettles Method and the Chinese Birth Calendar.
 
 ## Overview
 
@@ -31,55 +31,56 @@ This application provides users with a simple, informative tool to explore tradi
 - Access comprehensive FAQ section addressing common questions
 - Find detailed tracking methods for identifying ovulation accurately
 
-## Technical Details
+## Tech Stack
 
-This application is built using:
-- HTML5, CSS3, and JavaScript
-- Bootstrap 5 for responsive design
-- Mobile-first approach for optimal experience on all devices
-- Semantic HTML with structured data for better SEO
-- CSS custom properties for consistent styling
-- Form validation for improved user experience
-- Feminine-focused design with a soft color palette
+- **Next.js 15** (App Router) with static export
+- **React 19** + **TypeScript**
+- **Tailwind CSS** for styling
+- **react-datepicker** for date inputs
+- **lucide-react** for icons
 
-## SEO Optimizations
-- Semantic HTML structure with proper heading hierarchy
-- Keyword-rich content focusing on gender selection and family planning terms
-- Meta tags and descriptions optimized for search engines
-- Schema markup for improved search visibility
-- Mobile-friendly responsive design (Google ranking factor)
-- Fast-loading pages with optimized content structure
-- Internal linking structure for better crawlability
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18.17 or later
+- npm, yarn, or pnpm
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Production Build
+
+```bash
+npm run build
+```
+
+Static files are exported to the `out/` directory and can be deployed to any static hosting provider (Vercel, Netlify, GitHub Pages, etc.).
+
+## Project Structure
+
+```
+app/              # Next.js App Router pages and layout
+components/       # React components (wizard, calendar, education)
+lib/              # Pure calculation logic (Shettles, Chinese calendar)
+public/           # Static assets (favicon, robots.txt)
+```
 
 ## Disclaimer
 
 The methods presented in this application are based on traditional beliefs and theories that have not been scientifically proven to significantly influence baby gender. The Shettles Method and Chinese Birth Calendar are not guaranteed to produce the desired results. This application is for informational and entertainment purposes only. For medical advice about conception, please consult with a healthcare professional.
 
-## Getting Started
-
-To run this application locally:
-
-1. Clone or download this repository
-2. Open `index.html` in your web browser
-3. No build process or dependencies required
-
-## Browser Compatibility
-
-This application is designed to work on all modern browsers including:
-- Chrome
-- Firefox
-- Safari
-- Edge
-
 ## License
 
 This project is open source and available under the [MIT License](LICENSE).
-
-## Updates (2025)
-- Updated to use Bootstrap 5 for better mobile responsiveness
-- Redesigned with a feminine-focused color palette and UI elements
-- Added comprehensive SEO optimizations throughout the content
-- Enhanced educational content with more detailed information
-- Improved form validation for better user experience
-- Set default values for date inputs to improve usability
-- Updated copyright to reflect current year (2025) 
