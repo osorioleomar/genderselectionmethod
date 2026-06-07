@@ -13,7 +13,7 @@ export default function ChineseYearOverview({
 }: ChineseYearOverviewProps) {
   return (
     <div>
-      <p className="text-text-light text-sm mb-4 text-center">
+      <p className="text-foreground-light text-sm mb-4 text-center">
         {year} conception year overview
       </p>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3 mb-4">
@@ -29,7 +29,7 @@ export default function ChineseYearOverview({
                   ? desiredGender === "boy"
                     ? "bg-boy text-white border-2 border-boy/80"
                     : "bg-girl text-white border-2 border-girl/80"
-                  : "bg-neutral text-text border border-border"
+                  : "bg-neutral text-foreground border border-line"
               }`}
             >
               <div>{name}</div>
@@ -49,7 +49,7 @@ export default function ChineseYearOverview({
           <span>Favorable for {desiredGender}</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-5 h-5 rounded bg-neutral border border-border" />
+          <div className="w-5 h-5 rounded bg-neutral border border-line" />
           <span>Not favorable</span>
         </div>
       </div>

@@ -40,7 +40,7 @@ export default function ShettlesInfo() {
       <div className="mb-6">
         <h5 className="font-heading font-semibold mb-4">Secondary Factors in the Shettles Method:</h5>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="rounded-xl border border-border overflow-hidden">
+          <div className="rounded-xl border border-line overflow-hidden">
             <div className="bg-boy/20 px-4 py-3 font-semibold">For Conceiving a Boy</div>
             <ul className="list-none ml-0 px-4 py-3 space-y-2">
               <li>Deep penetration during intercourse</li>
@@ -48,7 +48,7 @@ export default function ShettlesInfo() {
               <li>Alkaline diet for the woman</li>
             </ul>
           </div>
-          <div className="rounded-xl border border-border overflow-hidden">
+          <div className="rounded-xl border border-line overflow-hidden">
             <div className="bg-girl/20 px-4 py-3 font-semibold">For Conceiving a Girl</div>
             <ul className="list-none ml-0 px-4 py-3 space-y-2">
               <li>Shallow penetration during intercourse</li>

@@ -1,9 +1,16 @@
 "use client";
 
-import DateInput from "@/components/ui/DateInput";
+import dynamic from "next/dynamic";
 import type { Gender } from "@/lib/dates";
 import { calculateChineseResults, getConceptionYearOptions } from "@/lib/chinese-calendar";
 import type { ChineseResults } from "@/lib/chinese-calendar";
+
+const DateInput = dynamic(() => import("@/components/ui/DateInput"), {
+  ssr: false,
+  loading: () => (
+    <div className="h-[46px] w-full rounded-lg border border-line bg-neutral animate-pulse" />
+  ),
+});
 
 interface ChineseFormProps {
   gender: Gender;
@@ -63,7 +70,7 @@ export default function ChineseForm({
             id="conception-year"
             value={conceptionYear}
             onChange={(e) => onConceptionYearChange(parseInt(e.target.value, 10))}
-            className="w-full rounded-lg border border-border px-4 py-2.5 text-text focus:outline-none focus:ring-2 focus:ring-primary/50"
+            className="w-full rounded-lg border border-line px-4 py-2.5 text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
             required
           >
             {yearOptions.map((year) => (

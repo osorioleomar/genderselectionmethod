@@ -19,8 +19,10 @@ export default function DateInput({
   onChange,
   placeholder = "Select date",
   required = false,
-  maxDate = new Date(),
+  maxDate,
 }: DateInputProps) {
+  const today = maxDate ?? new Date();
+
   return (
     <div className="relative flex">
       <DatePicker
@@ -29,14 +31,14 @@ export default function DateInput({
         onChange={onChange}
         placeholderText={placeholder}
         required={required}
-        maxDate={maxDate}
+        maxDate={today}
         dateFormat="MMMM d, yyyy"
-        className="w-full rounded-lg border border-border px-4 py-2.5 pr-10 text-text focus:outline-none focus:ring-2 focus:ring-primary/50"
+        className="w-full rounded-lg border border-line px-4 py-2.5 pr-10 text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
         wrapperClassName="w-full"
         showPopperArrow={false}
       />
       <Calendar
-        className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-text-light pointer-events-none"
+        className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground-light pointer-events-none"
         aria-hidden
       />
     </div>

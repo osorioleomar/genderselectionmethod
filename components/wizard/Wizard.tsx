@@ -12,25 +12,27 @@ import type { Gender } from "@/lib/dates";
 import type { ShettlesResults } from "@/lib/shettles";
 import type { ChineseResults } from "@/lib/chinese-calendar";
 
-const INITIAL_STATE = {
-  step: 1 as 1 | 2 | 3 | 4,
-  gender: null as Gender | null,
-  method: null as Method | null,
-  shettlesResults: null as ShettlesResults | null,
-  chineseResults: null as ChineseResults | null,
-  error: null as string | null,
-  lastPeriod: null as Date | null,
-  cycleLength: 28,
-  motherBirthDate: null as Date | null,
-  conceptionYear: new Date().getFullYear(),
-  chineseFormError: null as string | null,
-};
+function createInitialState() {
+  return {
+    step: 1 as 1 | 2 | 3 | 4,
+    gender: null as Gender | null,
+    method: null as Method | null,
+    shettlesResults: null as ShettlesResults | null,
+    chineseResults: null as ChineseResults | null,
+    error: null as string | null,
+    lastPeriod: null as Date | null,
+    cycleLength: 28,
+    motherBirthDate: null as Date | null,
+    conceptionYear: new Date().getFullYear(),
+    chineseFormError: null as string | null,
+  };
+}
 
 export default function Wizard() {
-  const [state, setState] = useState(INITIAL_STATE);
+  const [state, setState] = useState(createInitialState);
 
   const resetWizard = useCallback(() => {
-    setState(INITIAL_STATE);
+    setState(createInitialState());
   }, []);
 
   const handleShettlesResults = useCallback((results: ShettlesResults) => {
@@ -115,7 +117,7 @@ export default function Wizard() {
 
   return (
     <section id="wizard" className="mb-12 scroll-mt-8">
-      <div className="rounded-2xl border border-border bg-white p-6 md:p-8 shadow-soft">
+      <div className="rounded-2xl border border-line bg-white p-6 md:p-8 shadow-soft">
         <WizardProgress currentStep={state.step} />
 
         <div className="min-h-[200px] mb-8">

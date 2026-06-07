@@ -15,11 +15,11 @@ const config: Config = {
         girl: "#D48EAD",
         accent: "#BFA6D0",
         neutral: "#F8F5F7",
-        text: {
+        foreground: {
           DEFAULT: "#5A4A5A",
           light: "#8A7A8A",
         },
-        border: "#E8E0E8",
+        line: "#E8E0E8",
       },
       fontFamily: {
         heading: ["var(--font-montserrat)", "sans-serif"],

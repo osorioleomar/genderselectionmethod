@@ -34,7 +34,7 @@ export default function ChineseInfo() {
       </ol>
 
       <div className="flex justify-center my-6">
-        <div className="rounded-xl border border-border overflow-hidden max-w-md w-full">
+        <div className="rounded-xl border border-line overflow-hidden max-w-md w-full">
           <div className="bg-primary/20 px-4 py-3 font-semibold text-center">
             Chinese Birth Calendar Interpretation
           </div>

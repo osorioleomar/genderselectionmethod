@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply font-body text-text bg-white text-base leading-relaxed;
+    @apply font-body bg-white text-base leading-relaxed text-foreground;
   }
 
   h1,
@@ -60,11 +60,11 @@
   }
 
   .btn-secondary {
-    @apply btn bg-white border-border text-text hover:bg-neutral;
+    @apply btn bg-white border-line text-foreground hover:bg-neutral;
   }
 
   .card-selectable {
-    @apply rounded-2xl border-2 border-border bg-white p-6 shadow-soft cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-card;
+    @apply rounded-2xl border-2 border-line bg-white p-6 shadow-soft cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-card;
   }
 
   .card-selectable.active {
@@ -78,11 +78,11 @@
 }
 
 .react-datepicker__input-container input {
-  @apply w-full rounded-lg border border-border px-4 py-2.5 text-text focus:outline-none focus:ring-2 focus:ring-primary/50;
+  @apply w-full rounded-lg border border-line px-4 py-2.5 text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50;
 }
 
 .react-datepicker {
-  @apply font-body border-border shadow-card rounded-xl overflow-hidden;
+  @apply font-body border-line shadow-card rounded-xl overflow-hidden;
 }
 
 .react-datepicker__header {

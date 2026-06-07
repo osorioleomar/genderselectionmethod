@@ -20,7 +20,7 @@ export default function EducationalTabs() {
 
   return (
     <section id="education" className="mb-12 scroll-mt-8">
-      <div className="rounded-2xl border border-border bg-white p-6 md:p-8 shadow-soft">
+      <div className="rounded-2xl border border-line bg-white p-6 md:p-8 shadow-soft">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-8">
           {TABS.map((tab) => (
             <button
@@ -30,7 +30,7 @@ export default function EducationalTabs() {
               className={`rounded-xl px-3 py-2 text-sm md:text-base font-semibold transition-colors ${
                 activeTab === tab.id
                   ? "bg-primary text-white shadow-soft"
-                  : "bg-neutral text-text hover:bg-primary/10"
+                  : "bg-neutral text-foreground hover:bg-primary/10"
               }`}
             >
               {tab.label}
@@ -38,7 +38,7 @@ export default function EducationalTabs() {
           ))}
         </div>
 
-        <div className="prose prose-neutral max-w-none">
+        <div className="max-w-none">
           {activeTab === "shettles-info" && <ShettlesInfo />}
           {activeTab === "chinese-info" && <ChineseInfo />}
           {activeTab === "scientific-info" && <ScientificInfo />}

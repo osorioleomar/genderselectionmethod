@@ -114,7 +114,7 @@ export default function FAQAccordion() {
         {FAQ_ITEMS.map((item, index) => {
           const isOpen = openIndex === index;
           return (
-            <div key={index} className="rounded-xl border border-border overflow-hidden">
+            <div key={index} className="rounded-xl border border-line overflow-hidden">
               <button
                 type="button"
                 onClick={() => setOpenIndex(isOpen ? null : index)}
@@ -127,7 +127,7 @@ export default function FAQAccordion() {
                 />
               </button>
               {isOpen && (
-                <div className="px-4 py-3 border-t border-border bg-white">{item.answer}</div>
+                <div className="px-4 py-3 border-t border-line bg-white">{item.answer}</div>
               )}
             </div>
           );

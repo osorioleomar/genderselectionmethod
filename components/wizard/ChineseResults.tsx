@@ -18,7 +18,7 @@ export default function ChineseResultsView({ results }: ChineseResultsViewProps)
   } = results;
 
   return (
-    <div className="rounded-2xl bg-neutral border border-border p-6 md:p-8">
+    <div className="rounded-2xl bg-neutral border border-line p-6 md:p-8">
       <h3 className="text-primary mb-3">Chinese Birth Calendar Results</h3>
       <p>
         Based on the mother&apos;s lunar age of {lunarAge}, here are the favorable
@@ -46,7 +46,7 @@ export default function ChineseResultsView({ results }: ChineseResultsViewProps)
           desiredGender={desiredGender}
         />
 
-        <div className="overflow-x-auto mt-4 rounded-xl border border-border">
+        <div className="overflow-x-auto mt-4 rounded-xl border border-line">
           <table className="w-full text-sm">
             <thead className="bg-neutral">
               <tr>
@@ -65,7 +65,7 @@ export default function ChineseResultsView({ results }: ChineseResultsViewProps)
                 return (
                   <tr
                     key={month}
-                    className={`border-t border-border ${
+                    className={`border-t border-line ${
                       isFavorable ? "bg-green-50" : ""
                     } ${prediction === desiredGender ? "font-medium" : ""}`}
                   >
@@ -121,7 +121,7 @@ export default function ChineseResultsView({ results }: ChineseResultsViewProps)
         )}
       </div>
 
-      <div className="text-sm text-text-light border-t border-border pt-4">
+      <div className="text-sm text-foreground-light border-t border-line pt-4">
         <p className="mb-0">
           <strong>Remember:</strong> The Chinese Birth Calendar is a traditional method
           with no scientific basis. These predictions are based on ancient beliefs and

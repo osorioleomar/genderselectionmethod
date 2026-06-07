@@ -1,25 +1,11 @@
-"use client";
-
-import { useEffect } from "react";
-import Script from "next/script";
+import KofiWidget from "@/components/KofiWidget";
 
 export default function Footer() {
-  useEffect(() => {
-    const drawKofi = () => {
-      const kofi = (window as Window & { kofiwidget2?: { init: (text: string, color: string, id: string) => void; draw: () => void } }).kofiwidget2;
-      if (kofi) {
-        kofi.init("Little donation is big help", "#72a4f2", "R6R61BYW41");
-        kofi.draw();
-      }
-    };
-
-    if ((window as Window & { kofiwidget2?: unknown }).kofiwidget2) {
-      drawKofi();
-    }
-  }, []);
+  const year = new Date().getFullYear();
 
   return (
     <footer className="bg-gradient-to-br from-primary to-accent text-white py-8 mt-12 rounded-t-[20px]">
+      <KofiWidget />
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center md:text-left">
           <div>
@@ -71,21 +57,9 @@ export default function Footer() {
             </nav>
           </div>
         </div>
-        <div className="mt-6 flex justify-center" id="kofi-widget" />
-        <Script
-          src="https://storage.ko-fi.com/cdn/widget/Widget_2.js"
-          strategy="lazyOnload"
-          onLoad={() => {
-            const kofi = (window as Window & { kofiwidget2?: { init: (text: string, color: string, id: string) => void; draw: () => void } }).kofiwidget2;
-            if (kofi) {
-              kofi.init("Little donation is big help", "#72a4f2", "R6R61BYW41");
-              kofi.draw();
-            }
-          }}
-        />
         <hr className="border-white/30 my-6" />
         <p className="text-center mb-0 opacity-90">
-          &copy; {new Date().getFullYear()} Gender Selection Methods App. All rights reserved.
+          &copy; {year} Gender Selection Methods App. All rights reserved.
         </p>
       </div>
     </footer>

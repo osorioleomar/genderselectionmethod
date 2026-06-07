@@ -16,7 +16,7 @@ export default function StepMethod({ selectedMethod, onSelect }: StepMethodProps
           className={`card-selectable text-left h-full ${selectedMethod === "shettles" ? "active" : ""}`}
         >
           <h3 className="text-primary mb-3">Shettles Method Calculator</h3>
-          <p className="text-text-light mb-0 text-sm">
+          <p className="text-foreground-light mb-0 text-sm">
             Developed by Dr. Landrum Shettles, this scientifically-based approach
             suggests that timing intercourse relative to ovulation can influence
             whether you conceive a boy or girl.
@@ -28,7 +28,7 @@ export default function StepMethod({ selectedMethod, onSelect }: StepMethodProps
           className={`card-selectable text-left h-full ${selectedMethod === "chinese" ? "active" : ""}`}
         >
           <h3 className="text-primary mb-3">Chinese Birth Calendar</h3>
-          <p className="text-text-light mb-0 text-sm">
+          <p className="text-foreground-light mb-0 text-sm">
             This ancient method, dating back over 700 years, uses the mother&apos;s
             lunar age and conception month to predict baby gender.
           </p>

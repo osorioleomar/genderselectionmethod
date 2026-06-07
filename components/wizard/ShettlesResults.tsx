@@ -11,7 +11,7 @@ export default function ShettlesResultsView({ results }: ShettlesResultsViewProp
     results;
 
   return (
-    <div className="rounded-2xl bg-neutral border border-border p-6 md:p-8">
+    <div className="rounded-2xl bg-neutral border border-line p-6 md:p-8">
       <h3 className="text-primary mb-3">Shettles Method Results</h3>
       <p>
         Based on your input, here are your personalized recommendations for conceiving
@@ -65,7 +65,7 @@ export default function ShettlesResultsView({ results }: ShettlesResultsViewProp
         </ul>
       </div>
 
-      <div className="text-sm text-text-light border-t border-border pt-4">
+      <div className="text-sm text-foreground-light border-t border-line pt-4">
         <p className="mb-0">
           <strong>Remember:</strong> The Shettles Method is not scientifically proven
           and has approximately a 50% success rate. These recommendations are based on

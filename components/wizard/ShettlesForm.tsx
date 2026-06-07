@@ -1,10 +1,17 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect } from "react";
-import DateInput from "@/components/ui/DateInput";
 import type { Gender } from "@/lib/dates";
 import { calculateShettlesResults } from "@/lib/shettles";
 import type { ShettlesResults } from "@/lib/shettles";
+
+const DateInput = dynamic(() => import("@/components/ui/DateInput"), {
+  ssr: false,
+  loading: () => (
+    <div className="h-[46px] w-full rounded-lg border border-line bg-neutral animate-pulse" />
+  ),
+});
 
 interface ShettlesFormProps {
   gender: Gender;
@@ -69,7 +76,7 @@ export default function ShettlesForm({
                 const val = parseInt(e.target.value, 10);
                 if (!isNaN(val) && val >= 21 && val <= 35) onCycleLengthChange(val);
               }}
-              className="flex-1 rounded-lg border border-border px-4 py-2.5 text-center focus:outline-none focus:ring-2 focus:ring-primary/50"
+              className="flex-1 rounded-lg border border-line px-4 py-2.5 text-center focus:outline-none focus:ring-2 focus:ring-primary/50"
               required
             />
             <button
@@ -81,7 +88,7 @@ export default function ShettlesForm({
               +
             </button>
           </div>
-          <small className="text-text-light text-sm mt-1 block">
+          <small className="text-foreground-light text-sm mt-1 block">
             Most cycles are between 21-35 days
           </small>
         </div>

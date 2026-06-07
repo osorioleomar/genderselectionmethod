@@ -1,6 +1,6 @@
 export default function Disclaimer() {
   return (
-    <section className="mb-12 rounded-2xl bg-neutral border border-border p-6 md:p-8">
+    <section className="mb-12 rounded-2xl bg-neutral border border-line p-6 md:p-8">
       <div>
         <h2 className="text-primary">Important Disclaimer</h2>
         <p className="mb-0">

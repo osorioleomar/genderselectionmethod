@@ -28,14 +28,14 @@ export default function WizardProgress({ currentStep }: WizardProgressProps) {
                   ? "bg-primary text-white shadow-soft"
                   : isCompleted
                     ? "bg-accent text-white"
-                    : "bg-neutral text-text-light border-2 border-border"
+                    : "bg-neutral text-foreground-light border-2 border-line"
               }`}
             >
               {isCompleted ? "✓" : step.number}
             </div>
             <span
               className={`text-xs sm:text-sm text-center font-medium ${
-                isActive ? "text-primary" : "text-text-light"
+                isActive ? "text-primary" : "text-foreground-light"
               }`}
             >
               {step.label}

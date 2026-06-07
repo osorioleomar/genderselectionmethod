@@ -19,7 +19,7 @@ export default function ScientificInfo() {
       </ul>
 
       <h4>Research on Traditional Methods:</h4>
-      <div className="rounded-xl border border-border overflow-hidden mb-6">
+      <div className="rounded-xl border border-line overflow-hidden mb-6">
         <div className="bg-secondary/30 px-4 py-3 font-semibold">Scientific Findings:</div>
         <div className="p-4">
           <ul>

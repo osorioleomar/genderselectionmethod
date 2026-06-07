@@ -27,10 +27,10 @@ function getDayClasses(
   isOtherMonth: boolean
 ): string {
   const classes = [
-    "relative flex flex-col items-center justify-start p-1 md:p-2 h-[60px] md:h-[100px] lg:h-[120px] border border-border/50 transition-colors",
+    "relative flex flex-col items-center justify-start p-1 md:p-2 h-[60px] md:h-[100px] lg:h-[120px] border border-line/50 transition-colors",
   ];
 
-  if (isOtherMonth) classes.push("bg-neutral/50 text-text-light");
+  if (isOtherMonth) classes.push("bg-neutral/50 text-foreground-light");
   else classes.push("bg-white");
 
   if (isSameDay(date, today)) classes.push("ring-2 ring-inset ring-accent");
@@ -102,7 +102,7 @@ export default function ShettlesCalendar({
   }
 
   return (
-    <div className="rounded-2xl overflow-hidden shadow-card border border-border">
+    <div className="rounded-2xl overflow-hidden shadow-card border border-line">
       <div className="bg-gradient-to-br from-primary to-accent text-white px-4 py-3 flex justify-between items-center">
         <button
           type="button"
@@ -125,7 +125,7 @@ export default function ShettlesCalendar({
         </button>
       </div>
 
-      <div className="grid grid-cols-7 bg-neutral border-b border-border">
+      <div className="grid grid-cols-7 bg-neutral border-b border-line">
         {WEEKDAY_NAMES.map((day) => (
           <div
             key={day}
