@@ -1,11 +1,8 @@
-import KofiWidget from "@/components/KofiWidget";
-
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
     <footer className="bg-gradient-to-br from-primary to-accent text-white py-8 mt-12 rounded-t-[20px]">
-      <KofiWidget />
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center md:text-left">
           <div>
@@ -57,6 +54,19 @@ export default function Footer() {
             </nav>
           </div>
         </div>
+
+        <div className="mt-8 flex justify-center">
+          <a
+            href="https://ko-fi.com/R6R61BYW41"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-[#72a4f2] px-5 py-2.5 text-white font-semibold shadow-soft hover:opacity-90 transition-opacity"
+          >
+            <span aria-hidden>☕</span>
+            Little donation is big help
+          </a>
+        </div>
+
         <hr className="border-white/30 my-6" />
         <p className="text-center mb-0 opacity-90">
           &copy; {year} Gender Selection Methods App. All rights reserved.

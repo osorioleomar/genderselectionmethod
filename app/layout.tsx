@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Montserrat, Open_Sans } from "next/font/google";
-import ClarityAnalytics from "@/components/ClarityAnalytics";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -47,7 +46,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${montserrat.variable} ${openSans.variable} antialiased`}>
         {children}
-        <ClarityAnalytics />
       </body>
     </html>
   );
